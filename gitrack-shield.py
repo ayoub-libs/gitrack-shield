@@ -33,7 +33,7 @@ def args_parsing():
     parser = argparse.ArgumentParser(description='Finding secrets in Github code ..')
     parser.add_argument('file_path', type=str, help='Local repository path')
 #    parser.add_argument('--base-branch', dest="base_branch", nargs='?', type=str, help='Scan a specific branch')
-    parser.add_argument('--head-branch', dest="branch", nargs='+', type=str, help='Scan the main branch')
+    parser.add_argument('-b', '--head-branch', dest="branch", nargs='+', type=str, help='Scan the main branch')
     parser.add_argument('-t', '--secret-type', dest="secret_type", nargs='+', help= 'provide a list of scanning types, ex: --secret-type service_account DB_pwd (from special_paths_inclusion list)')
     parser.add_argument('-r', '--rules-file', dest="rules_file", type=str, help= 'The path to the regex rules file')
     parser.add_argument('-f', '--false-positive', dest="false_positive", type=str, help="Excluding false positives")
