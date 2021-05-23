@@ -160,7 +160,7 @@ def git_search(file_path, branch=None):
         try:
             branches = repo.remotes.origin.fetch(branch)
         except git.exc.GitCommandError as g:
-            sys.exit(0)
+            sys.exit("Error in branch name - branch removed or doesn't exist")
     else:
         branches = repo.remotes.origin.fetch()
 
