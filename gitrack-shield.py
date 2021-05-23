@@ -12,6 +12,7 @@ import os
 import re
 import json
 import logging
+import git
 from git import Repo
 from git import NULL_TREE
 from utils import *
@@ -156,7 +157,10 @@ def git_search(file_path, branch=None):
     results_dir = tempfile.mkdtemp()
 
     if branch:
-        branches = repo.remotes.origin.fetch(branch)
+        try:
+            branches = repo.remotes.origin.fetch(branch)
+        except git.exc.GitCommandError as g:
+            print("Error in branch {} - branch removed or doesn't exist".format(branch))
     else:
         branches = repo.remotes.origin.fetch()
 
