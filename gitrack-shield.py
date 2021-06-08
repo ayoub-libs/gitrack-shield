@@ -76,7 +76,7 @@ def main():
     results = git_search(args.file_path, args.branch)
     project_path = results["project_path"]
     if results["issues_results"]:
-        sys.exit(0) #skipping tests to debug an issue
+        sys.exit(1)
     else:
         sys.exit(0)
 
