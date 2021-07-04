@@ -19,16 +19,16 @@ from utils import *
 
 logging.basicConfig(format='%(message)s', level=logging.INFO)
 
+yaml_kp = ["API_KEY_GENERAL", "N00NPAY_KEY", "SERVICES_SECRET", "PASSWORD", "PROJECT_API_KEY", "JWT_3DS", 
+           "SENDGRID_KEY", "ZENDESK_TOKENS", "BRAZE_API_KEY", "BRAZE_S3", "KEY_BRAZE_CAMPAIGN"]
+
 special_paths_inclusion = {
     "SERVICE_ACCOUNT": ".*\.json",
-    "API_KEY_GENERAL": ".*\.(yaml|yml)",
-    "N00NPAY_KEY": ".*\.(yaml|yml)",
-    "SERVICES_SECRET": ".*\.(yaml|yml)",
-    "PASSWORD": ".*\.(yaml|yml)",
-    "PROJECT_API_KEY": ".*\.(yaml|yml)",
-    "three_DS_key": ".*\.(yaml|yml|py)",
-    "JWT_3DS": ".*\.(yaml|yml)"
+    "three_DS_key": ".*\.(yaml|yml|py)"
 }
+
+for kp in yaml_kp:
+    special_paths_inclusion[kp] = ".*\.(yaml|yml)"
 
 def args_parsing():
     parser = argparse.ArgumentParser(description='Finding secrets in Github code ..')
