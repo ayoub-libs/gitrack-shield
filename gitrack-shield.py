@@ -57,7 +57,7 @@ def main():
             rules = json.loads(ruleFile.read())
 
         for rule in rules:
-            rules[rule] = re.compile(rules[rule], flags=re.MULTILINE|re.IGNORECASE)
+            rules[rule] = re.compile(rules[rule], flags=re.MULTILINE)
 
     except (IOError, ValueError) as e:
         raise("Error reading rules file")
