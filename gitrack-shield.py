@@ -66,10 +66,9 @@ def main():
     try:
         if false_positive:
             with open(false_positive, "r") as exclusions:
-                fp = exclusions.readlines()
-
-            for exc in fp:
-                pattern_exclusions.append(exc.rstrip())
+                fp = exclusions.read().split('\n')
+                pattern_exclusions.extend(fp)
+                pattern_exclusions = list(filter(None, pattern_exclusions))
     except FileNotFoundError as f:
         logging.info("Incorrect false positive file .. skipping")
 
