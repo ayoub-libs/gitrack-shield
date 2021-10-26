@@ -69,7 +69,7 @@ def main():
                 fp = exclusions.readlines()
 
             for exc in fp:
-                pattern_exclusions.append(exc)
+                pattern_exclusions.append(exc.rstrip())
     except FileNotFoundError as f:
         logging.info("Incorrect false positive file .. skipping")
 
