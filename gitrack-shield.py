@@ -66,7 +66,7 @@ def main():
     try:
         if false_positive:
             with open(false_positive, "r") as exclusions:
-                fp = exclusions.read().split('\n')
+                fp = [x.rstrip() for x in exclusions.readlines()]
                 pattern_exclusions.extend(fp)
                 pattern_exclusions = list(filter(None, pattern_exclusions))
            for item in pattern_exclusions:
