@@ -69,7 +69,7 @@ def main():
                 fp = [x.rstrip() for x in exclusions.readlines()]
                 pattern_exclusions.extend(fp)
                 pattern_exclusions = list(filter(None, pattern_exclusions))
-           for item in pattern_exclusions:
+            for item in pattern_exclusions:
                 assert len(item) > 7, 'Invalid excluded patterns'
     except FileNotFoundError as f:
         logging.info("Incorrect false positive file .. skipping")
