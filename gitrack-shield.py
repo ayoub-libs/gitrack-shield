@@ -59,7 +59,7 @@ def main():
         for rule in rules:
             rules[rule] = re.compile(rules[rule], flags=re.MULTILINE)
 
-    except (IOError, ValueError) as e:
+     except (IOError, ValueError) as e:
         raise("Error reading rules file")
 
 
